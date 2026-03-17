@@ -34,8 +34,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.hero { position: relative; width: 100%; min-height: 600px; overflow: hidden; background: url('main-photo.jpg') center 20% / cover no-repeat; }
+.hero { position: relative; width: 100%; min-height: 600px; overflow: hidden; background: url('main-photo.jpg') center 20% / cover no-repeat; background-attachment: scroll; }
 .hero-image { display: none; }
+html { overflow-anchor: none; }
 .hero-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 60px 30px 50px; background: linear-gradient(transparent, rgba(0,0,0,0.5)); color: white; text-align: center; }
 .hero-overlay .date-en { font-family: 'Cormorant Garamond', serif; font-size: 14px; letter-spacing: 4px; text-transform: uppercase; opacity: 0.9; margin-bottom: 16px; }
 .hero-overlay .names-en { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; letter-spacing: 3px; line-height: 1.2; }
@@ -640,7 +641,17 @@ function submitRSVP() {
 // Fix hero height (prevent KakaoTalk in-app browser resize)
 (function() {
   var hero = document.querySelector('.hero');
-  hero.style.height = window.innerHeight + 'px';
+  var fixedHeight = document.documentElement.clientHeight;
+  hero.style.height = fixedHeight + 'px';
+  // Prevent ANY resize from changing hero
+  var locked = false;
+  window.addEventListener('resize', function() {
+    if (!locked) {
+      locked = true;
+      hero.style.height = fixedHeight + 'px';
+      setTimeout(function() { locked = false; }, 100);
+    }
+  });
 })();
 
 // D-day countdown (2026-06-21 18:00 KST)
