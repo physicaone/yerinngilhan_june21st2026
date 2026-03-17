@@ -494,11 +494,7 @@ section { padding: 60px 30px; text-align: center; }
         </div>
       </div>
 
-      <div class="form-group">
-        <label>알러지 정보</label>
-        <input type="text" id="f-allergy" placeholder="없을 경우 비워두세요">
-        <p class="form-note">· 식사는 양식 코스요리로 제공됩니다.</p>
-      </div>
+      <!-- allergy removed -->
 
       <div class="form-group">
         <label>동반인 추가</label>
@@ -590,7 +586,7 @@ function submitRSVP() {
     relation: document.getElementById('f-relation').value.trim(),
     side: sideEl ? sideEl.dataset.value : '',
     vegan: '',
-    allergy: document.getElementById('f-allergy').value.trim(),
+    allergy: '',
     guests: document.getElementById('f-guest-count').textContent,
     message: document.getElementById('f-message').value.trim(),
     timestamp: new Date().toISOString()
