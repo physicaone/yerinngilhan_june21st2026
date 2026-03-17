@@ -495,14 +495,6 @@ section { padding: 60px 30px; text-align: center; }
       </div>
 
       <div class="form-group">
-        <label>비건식 (채식) 신청 <span class="req">*</span></label>
-        <div class="toggle-group" id="f-vegan">
-          <button onclick="selectToggle(this, 'f-vegan')" data-value="예">예</button>
-          <button onclick="selectToggle(this, 'f-vegan')" data-value="아니오" class="selected">아니오</button>
-        </div>
-      </div>
-
-      <div class="form-group">
         <label>알러지 정보</label>
         <input type="text" id="f-allergy" placeholder="없을 경우 비워두세요">
         <p class="form-note">· 식사는 양식 코스요리로 제공됩니다.</p>
@@ -591,14 +583,13 @@ function submitRSVP() {
   }
 
   const sideEl = document.querySelector('#f-side .selected');
-  const veganEl = document.querySelector('#f-vegan .selected');
 
   const data = {
     name: name,
     phone: phone,
     relation: document.getElementById('f-relation').value.trim(),
     side: sideEl ? sideEl.dataset.value : '',
-    vegan: veganEl ? veganEl.dataset.value : '',
+    vegan: '',
     allergy: document.getElementById('f-allergy').value.trim(),
     guests: document.getElementById('f-guest-count').textContent,
     message: document.getElementById('f-message').value.trim(),
