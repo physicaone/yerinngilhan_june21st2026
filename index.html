@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>길한 ♥ 예린 결혼합니다</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+KR:wght@200;300;400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream: #FAF7F2;
+  --gold: #B8956A;
+  --gold-light: #D4B896;
+  --text: #3A3A3A;
+  --text-light: #6B6B6B;
+}
+
+body {
+  font-family: 'Noto Serif KR', serif;
+  background: var(--cream);
+  color: var(--text);
+  max-width: 480px;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.hero-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 60px 30px 50px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.5));
+  color: white;
+  text-align: center;
+}
+
+.hero-overlay .date-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  opacity: 0.9;
+  margin-bottom: 16px;
+}
+
+.hero-overlay .names-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  line-height: 1.2;
+}
+
+.hero-overlay .ampersand {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 28px;
+  font-weight: 300;
+  opacity: 0.8;
+  margin: 4px 0;
+}
+
+section {
+  padding: 60px 30px;
+  text-align: center;
+}
+
+.divider {
+  width: 1px;
+  height: 40px;
+  background: var(--gold-light);
+  margin: 0 auto 30px;
+}
+
+.section-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.invitation { background: white; }
+
+.invitation .names-kr {
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 8px;
+  margin-bottom: 30px;
+}
+
+.invitation .heart {
+  color: var(--gold);
+  font-size: 18px;
+  margin: 0 4px;
+}
+
+.invitation .message {
+  font-size: 15px;
+  font-weight: 200;
+  line-height: 2.2;
+  color: var(--text-light);
+  word-break: keep-all;
+}
+
+.datetime { background: var(--cream); }
+
+.datetime .date-big {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.datetime .date-detail {
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+.datetime .time {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text-light);
+}
+
+.calendar {
+  margin: 30px auto 0;
+  max-width: 300px;
+}
+
+.calendar table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.calendar th {
+  font-weight: 300;
+  color: var(--text-light);
+  padding: 8px 0;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.calendar td {
+  padding: 6px 0;
+  font-weight: 200;
+  color: var(--text-light);
+}
+
+.calendar .sun { color: #C4706E; }
+
+.calendar .today {
+  background: var(--gold);
+  color: white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+}
+
+.venue { background: white; }
+
+.venue .name {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.venue .address {
+  font-size: 14px;
+  font-weight: 200;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 200px;
+  background: #E8E4DF;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 32px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px;
+  font-weight: 300;
+  text-decoration: none;
+  letter-spacing: 2px;
+  transition: all 0.3s;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.btn:hover {
+  background: var(--gold);
+  color: white;
+}
+
+.footer {
+  padding: 40px 30px 60px;
+  text-align: center;
+  background: var(--cream);
+}
+
+.footer .names {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.footer .date {
+  font-size: 12px;
+  color: var(--text-light);
+  letter-spacing: 2px;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate {
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <img class="hero-image" src="main-photo.jpg" alt="Gilhan & Yerinn">
+  <div class="hero-overlay">
+    <div class="date-en">June 21, 2026</div>
+    <div class="names-en">Gilhan</div>
+    <div class="ampersand">&</div>
+    <div class="names-en">Yerinn</div>
+  </div>
+</div>
+
+<section class="invitation">
+  <div class="divider"></div>
+  <div class="section-label">Invitation</div>
+  <div class="names-kr">길한 <span class="heart">♥</span> 예린</div>
+  <p class="message">
+    서로의 마음을 확인하며<br>
+    함께한 시간들이<br>
+    이제 하나의 길이 되려 합니다.<br><br>
+    저희 두 사람이 사랑의 서약을 하는 날,<br>
+    귀한 걸음 하시어<br>
+    축복해 주시면 감사하겠습니다.
+  </p>
+</section>
+
+<section class="datetime">
+  <div class="divider"></div>
+  <div class="section-label">When</div>
+  <div class="date-big">21</div>
+  <div class="date-detail">2026년 6월 21일 일요일</div>
+  <div class="time">오후 6시 · Sunday, June 21st</div>
+  
+  <div class="calendar">
+    <table>
+      <thead>
+        <tr>
+          <th class="sun">SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="sun">1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+        <tr><td class="sun">8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td></tr>
+        <tr><td class="sun">15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td><span class="today">21</span></td></tr>
+        <tr><td class="sun">22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td></tr>
+        <tr><td class="sun">29</td><td>30</td><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="venue">
+  <div class="divider"></div>
+  <div class="section-label">Where</div>
+  <div class="name">르한스</div>
+  <div class="address">
+    서울특별시 성북구 정릉로 10길 127<br><br>
+    🚗 주차 넉넉합니다 (발렛)<br>
+    🚌 한성대입구역 셔틀 17:00~21:00 (20분 간격)
+  </div>
+  <div class="map-placeholder">
+    <span style="color: var(--text-light); font-size: 13px;">지도 영역</span>
+  </div>
+  <a class="btn" href="https://map.kakao.com/?q=서울 성북구 정릉로10길 127" target="_blank">카카오맵 길안내</a>
+</section>
+
+<div class="footer">
+  <div class="names">Gilhan & Yerinn</div>
+  <div class="date">2026. 06. 21</div>
+</div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('section').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
