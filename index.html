@@ -610,16 +610,7 @@ function submitRSVP() {
   btn.textContent = '전송 중...';
 
   // Google Apps Script endpoint (replace with your own)
-  const ENDPOINT = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
-  
-  if (ENDPOINT === 'YOUR_GOOGLE_APPS_SCRIPT_URL') {
-    // Demo mode - just show success
-    setTimeout(() => {
-      document.getElementById('rsvpForm').style.display = 'none';
-      document.getElementById('rsvpSuccess').style.display = 'block';
-    }, 500);
-    return;
-  }
+  const ENDPOINT = 'https://script.google.com/macros/s/AKfycbyLjaXCPv7TiPgR-1VygkPZRXOxUX4-JEZwJbouYLdHC0F362rEL57nr2NAmkXAi0Rz/exec';
 
   fetch(ENDPOINT, {
     method: 'POST',
