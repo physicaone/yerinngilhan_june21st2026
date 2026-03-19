@@ -380,30 +380,7 @@ section { padding: 60px 30px; text-align: center; }
   </div>
 </section>
 
-<!-- D-day Counter -->
-<section class="dday" style="background: #FFF8F0;">
-  <div class="divider"></div>
-  <div class="section-label">D-Day</div>
-  <p style="font-size: 14px; font-weight: 200; color: var(--text-light); margin-bottom: 20px;">결혼식까지 남은 시간</p>
-  <div id="countdown" style="display: flex; justify-content: center; gap: 16px;">
-    <div class="count-box">
-      <div class="count-num" id="c-days">0</div>
-      <div class="count-label">DAYS</div>
-    </div>
-    <div class="count-box">
-      <div class="count-num" id="c-hours">0</div>
-      <div class="count-label">HOURS</div>
-    </div>
-    <div class="count-box">
-      <div class="count-num" id="c-mins">0</div>
-      <div class="count-label">MIN</div>
-    </div>
-    <div class="count-box">
-      <div class="count-num" id="c-secs">0</div>
-      <div class="count-label">SEC</div>
-    </div>
-  </div>
-</section>
+<!-- D-day removed -->
 
 <!-- Timeline -->
 <section class="timeline" style="background: var(--cream);">
@@ -653,26 +630,7 @@ function submitRSVP() {
   });
 })();
 
-// D-day countdown (2026-06-21 18:00 KST)
-const weddingDate = new Date('2026-06-21T18:00:00+09:00');
-function updateCountdown() {
-  const now = new Date();
-  const diff = weddingDate - now;
-  if (diff <= 0) {
-    document.getElementById('countdown').innerHTML = '<div style="font-family: Cormorant Garamond, serif; font-size: 28px; color: var(--gold);">TODAY!!</div>';
-    return;
-  }
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  const secs = Math.floor((diff % (1000 * 60)) / 1000);
-  document.getElementById('c-days').textContent = days;
-  document.getElementById('c-hours').textContent = String(hours).padStart(2, '0');
-  document.getElementById('c-mins').textContent = String(mins).padStart(2, '0');
-  document.getElementById('c-secs').textContent = String(secs).padStart(2, '0');
-}
-updateCountdown();
-setInterval(updateCountdown, 1000);
+// D-day removed
 
 // Scroll animations
 const observer = new IntersectionObserver((entries) => {
