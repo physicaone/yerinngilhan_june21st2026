@@ -482,6 +482,14 @@ section { padding: 60px 30px; text-align: center; }
       <p class="subtitle">좌석 배치를 위해 참석 여부와 인원을 알려주세요.</p>
 
       <div class="form-group">
+        <label>참석 여부 <span class="req">*</span></label>
+        <div class="toggle-group" id="f-attend">
+          <button onclick="selectToggle(this, 'f-attend')" data-value="참석" class="selected">참석</button>
+          <button onclick="selectToggle(this, 'f-attend')" data-value="불참">불참</button>
+        </div>
+      </div>
+
+      <div class="form-group">
         <label>성명 <span class="req">*</span></label>
         <input type="text" id="f-name" placeholder="홍길동">
       </div>
@@ -590,7 +598,10 @@ function submitRSVP() {
 
   const sideEl = document.querySelector('#f-side .selected');
 
+  const attendEl = document.querySelector('#f-attend .selected');
+
   const data = {
+    attend: attendEl ? attendEl.dataset.value : '',
     name: name,
     phone: phone,
     relation: document.getElementById('f-relation').value.trim(),
