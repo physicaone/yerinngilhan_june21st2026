@@ -10,7 +10,6 @@
 <meta property="og:url" content="https://physicaone.github.io/yerinngilhan_june21st2026/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=6frhki8ou6"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+KR:wght@200;300;400;600&display=swap" rel="stylesheet">
@@ -375,7 +374,9 @@ section { padding: 60px 30px; text-align: center; }
     🚗 전용 주차 공간이 충분히 마련되어 있습니다.<br>입구에서 주차 안내 요원이 안내해 드립니다.
     </span>
   </div>
-  <div id="naver-map" style="width: 100%; height: 250px; border-radius: 8px; overflow: hidden; margin-bottom: 20px; background: #E8E4DF;"></div>
+  <div style="width: 100%; height: 250px; border-radius: 8px; overflow: hidden; margin-bottom: 20px;">
+    <iframe src="https://www.google.com/maps?q=서울+성북구+정릉로10길+127+르한스&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
   <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
     <a class="btn" style="padding: 10px 20px; font-size: 12px; letter-spacing: 1px;" href="https://naver.me/F05kpUsF" target="_blank">네이버지도</a>
     <a class="btn" style="padding: 10px 20px; font-size: 12px; letter-spacing: 1px;" href="https://kko.to/s3NZCso9-J" target="_blank">카카오맵</a>
@@ -638,19 +639,7 @@ function submitRSVP() {
   });
 })();
 
-// Naver Map
-try {
-  var mapDiv = document.getElementById('naver-map');
-  var lehans = new naver.maps.LatLng(37.6069, 127.0058);
-  var map = new naver.maps.Map(mapDiv, {
-    center: lehans,
-    zoom: 16,
-    scrollWheel: false,
-    draggable: true,
-    pinchZoom: true
-  });
-  new naver.maps.Marker({ position: lehans, map: map, title: '르한스' });
-} catch(e) { console.log('Map error:', e); }
+// Map: Google Maps embed
 
 // Scroll animations
 const observer = new IntersectionObserver((entries) => {
