@@ -470,8 +470,8 @@ section { padding: 60px 30px; text-align: center; }
       <div class="form-group">
         <label>참석 여부 <span class="req">*</span></label>
         <div class="toggle-group" id="f-attend">
-          <button onclick="selectToggle(this, 'f-attend')" data-value="참석" class="selected">참석</button>
-          <button onclick="selectToggle(this, 'f-attend')" data-value="불참">불참</button>
+          <button onclick="selectToggle(this, 'f-attend'); toggleAttend('참석')" data-value="참석" class="selected">참석</button>
+          <button onclick="selectToggle(this, 'f-attend'); toggleAttend('불참')" data-value="불참">불참</button>
         </div>
       </div>
 
@@ -480,17 +480,17 @@ section { padding: 60px 30px; text-align: center; }
         <input type="text" id="f-name" placeholder="홍길동">
       </div>
 
-      <div class="form-group">
+      <div class="form-group attend-field">
         <label>연락처 <span class="req">*</span></label>
         <input type="tel" id="f-phone" placeholder="01012345678">
       </div>
 
-      <div class="form-group">
+      <div class="form-group attend-field">
         <label>소속 (관계)</label>
         <input type="text" id="f-relation" placeholder="회사 또는 학교">
       </div>
 
-      <div class="form-group">
+      <div class="form-group attend-field">
         <label>어느 쪽으로 안내해 드릴까요? <span class="req">*</span></label>
         <div class="toggle-group" id="f-side">
           <button onclick="selectToggle(this, 'f-side')" data-value="신부측">신부(예린)측</button>
@@ -500,7 +500,7 @@ section { padding: 60px 30px; text-align: center; }
 
       <!-- allergy removed -->
 
-      <div class="form-group">
+      <div class="form-group attend-field">
         <label>동반인 추가</label>
         <p class="form-note" style="margin-bottom: 8px;">· 함께 오시는 분이 있다면 알려주세요.</p>
         <div class="counter">
@@ -510,7 +510,7 @@ section { padding: 60px 30px; text-align: center; }
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group attend-field">
         <label>기타 전달할 내용</label>
         <textarea id="f-message" placeholder="전달하고 싶은 내용이 있다면 자유롭게 적어 주세요."></textarea>
       </div>
@@ -555,6 +555,17 @@ function openRSVP() {
 function closeRSVP() {
   document.getElementById('rsvpModal').classList.remove('active');
   document.body.style.overflow = '';
+}
+
+// Attend toggle
+function toggleAttend(val) {
+  var fields = document.querySelectorAll('.attend-field');
+  fields.forEach(function(el) {
+    el.style.opacity = val === '불참' ? '0.3' : '1';
+    el.style.pointerEvents = val === '불참' ? 'none' : 'auto';
+    var inputs = el.querySelectorAll('input, textarea');
+    inputs.forEach(function(inp) { inp.disabled = val === '불참'; });
+  });
 }
 
 // Toggle buttons
