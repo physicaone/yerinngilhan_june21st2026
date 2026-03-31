@@ -312,6 +312,7 @@ section { padding: 60px 30px; text-align: center; }
   color: var(--text-light);
 }
 </style>
+<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=78742f41f494ecb6abd6eade211ba107"></script>
 </head>
 <body>
 
@@ -394,20 +395,23 @@ section { padding: 60px 30px; text-align: center; }
   <div class="address">
     서울특별시 성북구 정릉로 10길 127
   </div>
-  <div id="mapFallback" style="width: 100%; height: 250px; border-radius: 8px; overflow: hidden; margin-bottom: 20px;">
-    <iframe id="mapIframe" src="https://www.google.com/maps?q=서울+성북구+정릉로10길+127+르한스&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-  </div>
+  <div id="kakaoMap" style="width: 100%; height: 250px; border-radius: 8px; overflow: hidden; margin-bottom: 20px;"></div>
   <script>
   (function(){
-    var f=document.getElementById('mapIframe');
-    f.onerror=function(){showFallback()};
-    setTimeout(function(){
-      try{if(!f.contentWindow||!f.contentWindow.document)showFallback()}catch(e){showFallback()}
-    },3000);
-    function showFallback(){
-      var d=document.getElementById('mapFallback');
-      d.innerHTML='<a href="https://kko.to/s3NZCso9-J" target="_blank" style="display:flex;align-items:center;justify-content:center;height:100%;background:#e8e4dc;color:#6B5E54;font-size:14px;text-decoration:none;border-radius:8px;">📍 지도 앱에서 보기 →</a>';
-    }
+    var container = document.getElementById('kakaoMap');
+    var options = {
+      center: new kakao.maps.LatLng(37.6101, 127.0083),
+      level: 4
+    };
+    var map = new kakao.maps.Map(container, options);
+    var marker = new kakao.maps.Marker({
+      position: new kakao.maps.LatLng(37.6101, 127.0083)
+    });
+    marker.setMap(map);
+    var infowindow = new kakao.maps.InfoWindow({
+      content: '<div style="padding:5px;font-size:12px;white-space:nowrap;">르한스</div>'
+    });
+    infowindow.open(map, marker);
   })();
   </script>
   <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
