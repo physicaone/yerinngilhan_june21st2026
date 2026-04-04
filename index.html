@@ -62,16 +62,13 @@ body {
 html { overflow-anchor: none; }
 .hero-overlay { position: absolute; top: 0; left: 0; right: 0; padding: 60px 30px; background: linear-gradient(rgba(0,0,0,0.4), transparent); color: white; text-align: center; }
 .hero-overlay .date-en { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-size: 14px; letter-spacing: 4px; text-transform: uppercase; opacity: 0.9; margin-bottom: 16px; }
-.hero-overlay .names-en { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-size: 42px; font-weight: 300; letter-spacing: 3px; line-height: 1.2; }
-.hero-overlay .ampersand { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-style: italic; font-size: 28px; font-weight: 300; opacity: 0.8; margin: 4px 0; }
+.hero-overlay .names-logo { width: min(90vw, 340px); height: auto; }
 html.fonts-loading .hero-overlay .date-en,
-html.fonts-loading .hero-overlay .names-en,
-html.fonts-loading .hero-overlay .ampersand {
+html.fonts-loading .hero-overlay .names-logo {
   opacity: 0;
 }
 html.fonts-ready .hero-overlay .date-en,
-html.fonts-ready .hero-overlay .names-en,
-html.fonts-ready .hero-overlay .ampersand {
+html.fonts-ready .hero-overlay .names-logo {
   opacity: 1;
   transition: opacity .2s ease;
 }
@@ -351,10 +348,8 @@ section { padding: 60px 30px; text-align: center; }
   <img class="hero-image" src="main-photo.jpg" alt="Yerinn & Gilhan">
   <div class="hero-overlay">
     <div class="date-en">June 21, 2026</div>
-    <div style="display: flex; align-items: center; justify-content: center; gap: 16px;">
-      <span class="names-en">Yerinn</span>
-      <span class="ampersand" style="margin: 0;">&</span>
-      <span class="names-en">Gilhan</span>
+    <div style="display: flex; align-items: center; justify-content: center;">
+      <img class="names-logo" src="names-lockup.svg" alt="Yerinn & Gilhan">
     </div>
   </div>
 </div>
