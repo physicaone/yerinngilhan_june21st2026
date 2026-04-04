@@ -19,15 +19,20 @@
 <script>
   document.documentElement.classList.add('fonts-loading');
   (function() {
+    let doneOnce = false;
     const done = () => {
+      if (doneOnce) return;
+      doneOnce = true;
       document.documentElement.classList.remove('fonts-loading');
       document.documentElement.classList.add('fonts-ready');
     };
+
+    // Kakao in-app 브라우저 대응: 최소 표시 지연 + fonts.ready + load 이벤트 중 먼저 완료된 것 사용
+    setTimeout(done, 2200);
+    window.addEventListener('load', () => setTimeout(done, 250));
+
     if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(done).catch(done);
-      setTimeout(done, 1800);
-    } else {
-      done();
+      document.fonts.ready.then(() => setTimeout(done, 150)).catch(done);
     }
   })();
 </script>
@@ -62,7 +67,13 @@ html { overflow-anchor: none; }
 html.fonts-loading .hero-overlay .date-en,
 html.fonts-loading .hero-overlay .names-en,
 html.fonts-loading .hero-overlay .ampersand {
-  visibility: hidden;
+  opacity: 0;
+}
+html.fonts-ready .hero-overlay .date-en,
+html.fonts-ready .hero-overlay .names-en,
+html.fonts-ready .hero-overlay .ampersand {
+  opacity: 1;
+  transition: opacity .2s ease;
 }
 
 section { padding: 60px 30px; text-align: center; }
