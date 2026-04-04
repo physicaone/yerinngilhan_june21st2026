@@ -16,6 +16,21 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+KR:wght@200;300;400;600&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+KR:wght@200;300;400;600&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+KR:wght@200;300;400;600&display=swap"></noscript>
+<script>
+  document.documentElement.classList.add('fonts-loading');
+  (function() {
+    const done = () => {
+      document.documentElement.classList.remove('fonts-loading');
+      document.documentElement.classList.add('fonts-ready');
+    };
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(done).catch(done);
+      setTimeout(done, 1800);
+    } else {
+      done();
+    }
+  })();
+</script>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -44,6 +59,11 @@ html { overflow-anchor: none; }
 .hero-overlay .date-en { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-size: 14px; letter-spacing: 4px; text-transform: uppercase; opacity: 0.9; margin-bottom: 16px; }
 .hero-overlay .names-en { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-size: 42px; font-weight: 300; letter-spacing: 3px; line-height: 1.2; }
 .hero-overlay .ampersand { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-style: italic; font-size: 28px; font-weight: 300; opacity: 0.8; margin: 4px 0; }
+html.fonts-loading .hero-overlay .date-en,
+html.fonts-loading .hero-overlay .names-en,
+html.fonts-loading .hero-overlay .ampersand {
+  visibility: hidden;
+}
 
 section { padding: 60px 30px; text-align: center; }
 .divider { width: 1px; height: 40px; background: var(--gold-light); margin: 0 auto 30px; }
