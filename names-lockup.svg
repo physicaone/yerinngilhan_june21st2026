@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220" role="img" aria-label="Yerinn &amp; Gilhan">
-  <style>
-    .name { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-size: 126px; font-weight: 300; fill: #ffffff; letter-spacing: 9px; }
-    .amp  { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-size: 84px;  font-weight: 300; font-style: italic; fill: #ffffff; opacity: 0.8; }
-  </style>
-  <text x="500" y="145" text-anchor="end" class="name">Yerinn</text>
-  <text x="600" y="145" text-anchor="middle" class="amp">&amp;</text>
-  <text x="700" y="145" text-anchor="start" class="name">Gilhan</text>
-</svg>
