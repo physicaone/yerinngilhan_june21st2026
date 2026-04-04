@@ -13,29 +13,7 @@
 <meta name="format-detection" content="telephone=no">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+KR:wght@200;300;400;600&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+KR:wght@200;300;400;600&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+KR:wght@200;300;400;600&display=swap"></noscript>
-<script>
-  document.documentElement.classList.add('fonts-loading');
-  (function() {
-    let doneOnce = false;
-    const done = () => {
-      if (doneOnce) return;
-      doneOnce = true;
-      document.documentElement.classList.remove('fonts-loading');
-      document.documentElement.classList.add('fonts-ready');
-    };
-
-    // Kakao in-app 브라우저 대응: 최소 표시 지연 + fonts.ready + load 이벤트 중 먼저 완료된 것 사용
-    setTimeout(done, 2200);
-    window.addEventListener('load', () => setTimeout(done, 250));
-
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(() => setTimeout(done, 150)).catch(done);
-    }
-  })();
-</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+KR:wght@200;300;400;600&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -49,7 +27,7 @@
 }
 
 body {
-  font-family: 'Noto Serif KR', 'Apple SD Gothic Neo', 'Malgun Gothic', serif;
+  font-family: 'Noto Serif KR', serif;
   background: var(--cream);
   color: var(--text);
   max-width: 480px;
@@ -61,20 +39,9 @@ body {
 .hero-image { display: none; }
 html { overflow-anchor: none; }
 .hero-overlay { position: absolute; top: 0; left: 0; right: 0; padding: 60px 30px; background: linear-gradient(rgba(0,0,0,0.4), transparent); color: white; text-align: center; }
-.hero-overlay .date-en { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-size: 14px; letter-spacing: 4px; text-transform: uppercase; opacity: 0.9; margin-bottom: 16px; }
-.hero-overlay .names-en { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-size: 42px; font-weight: 300; letter-spacing: 3px; line-height: 1.2; }
-.hero-overlay .ampersand { font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-style: italic; font-size: 28px; font-weight: 300; opacity: 0.8; margin: 4px 0; }
-html.fonts-loading .hero-overlay .date-en,
-html.fonts-loading .hero-overlay .names-en,
-html.fonts-loading .hero-overlay .ampersand {
-  opacity: 0;
-}
-html.fonts-ready .hero-overlay .date-en,
-html.fonts-ready .hero-overlay .names-en,
-html.fonts-ready .hero-overlay .ampersand {
-  opacity: 1;
-  transition: opacity .2s ease;
-}
+.hero-overlay .date-en { font-family: 'Cormorant Garamond', serif; font-size: 14px; letter-spacing: 4px; text-transform: uppercase; opacity: 0.9; margin-bottom: 16px; }
+.hero-overlay .names-en { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; letter-spacing: 3px; line-height: 1.2; }
+.hero-overlay .ampersand { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 28px; font-weight: 300; opacity: 0.8; margin: 4px 0; }
 
 section { padding: 60px 30px; text-align: center; }
 .divider { width: 1px; height: 40px; background: var(--gold-light); margin: 0 auto 30px; }
