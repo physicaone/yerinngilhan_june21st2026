@@ -460,6 +460,7 @@ section { padding: 60px 30px; text-align: center; }
     <img src="gallery-2.jpg" alt="갤러리 2" onclick="openLightbox(1)" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; cursor: pointer;">
     <img src="gallery-3.jpg" alt="갤러리 3" onclick="openLightbox(2)" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; cursor: pointer;">
     <img src="gallery-4.jpg" alt="갤러리 4" onclick="openLightbox(3)" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; cursor: pointer;">
+    <img src="gallery-5.jpg" alt="갤러리 5" onclick="openLightbox(4)" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; cursor: pointer; grid-column: 1 / -1; aspect-ratio: 2/1;">
   </div>
 </section>
 
@@ -473,7 +474,7 @@ section { padding: 60px 30px; text-align: center; }
 </div>
 <script>
 (function(){
-  var imgs = ['gallery-1.jpg','gallery-2.jpg','gallery-3.jpg','gallery-4.jpg'];
+  var imgs = ['gallery-1.jpg','gallery-2.jpg','gallery-3.jpg','gallery-4.jpg','gallery-5.jpg'];
   var lbIdx = 0;
   var lb = document.getElementById('lightbox');
   var lbImg = document.getElementById('lightboxImg');
