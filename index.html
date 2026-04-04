@@ -455,12 +455,21 @@ section { padding: 60px 30px; text-align: center; }
 <section style="background: var(--cream); padding: 50px 30px;">
   <div class="divider"></div>
   <div class="section-label">Gallery</div>
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px;">
-    <img src="gallery-1.jpg" alt="갤러리 1" onclick="openLightbox(0)" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; cursor: pointer;">
-    <img src="gallery-2.jpg" alt="갤러리 2" onclick="openLightbox(1)" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; cursor: pointer;">
-    <img src="gallery-3.jpg" alt="갤러리 3" onclick="openLightbox(2)" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; cursor: pointer;">
-    <img src="gallery-4.jpg" alt="갤러리 4" onclick="openLightbox(3)" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; cursor: pointer;">
-    <img src="gallery-5.jpg" alt="갤러리 5" onclick="openLightbox(4)" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; cursor: pointer; grid-column: 1 / -1; aspect-ratio: 2/1;">
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; margin-top: 10px;">
+    <img src="gallery-1.jpg" alt="1" onclick="openLightbox(0)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;cursor:pointer;">
+    <img src="gallery-2.jpg" alt="2" onclick="openLightbox(1)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;cursor:pointer;">
+    <img src="gallery-3.jpg" alt="3" onclick="openLightbox(2)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;cursor:pointer;">
+    <img src="gallery-4.jpg" alt="4" onclick="openLightbox(3)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;cursor:pointer;">
+    <img src="gallery-5.jpg" alt="5" onclick="openLightbox(4)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;cursor:pointer;">
+    <img src="gallery-6.jpg" alt="6" onclick="openLightbox(5)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;cursor:pointer;">
+    <img src="gallery-7.jpg" alt="7" onclick="openLightbox(6)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;cursor:pointer;">
+    <img src="gallery-8.jpg" alt="8" onclick="openLightbox(7)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;cursor:pointer;">
+    <img src="gallery-9.jpg" alt="9" onclick="openLightbox(8)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;cursor:pointer;">
+    <img src="gallery-10.jpg" alt="10" onclick="openLightbox(9)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;cursor:pointer;">
+    <img src="gallery-11.jpg" alt="11" onclick="openLightbox(10)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;cursor:pointer;">
+    <img src="gallery-12.jpg" alt="12" onclick="openLightbox(11)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;cursor:pointer;">
+    <img src="gallery-13.jpg" alt="13" onclick="openLightbox(12)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;cursor:pointer;">
+    <img src="gallery-14.jpg" alt="14" onclick="openLightbox(13)" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;cursor:pointer;">
   </div>
 </section>
 
@@ -474,7 +483,7 @@ section { padding: 60px 30px; text-align: center; }
 </div>
 <script>
 (function(){
-  var imgs = ['gallery-1.jpg','gallery-2.jpg','gallery-3.jpg','gallery-4.jpg','gallery-5.jpg'];
+  var imgs = ['gallery-1.jpg','gallery-2.jpg','gallery-3.jpg','gallery-4.jpg','gallery-5.jpg','gallery-6.jpg','gallery-7.jpg','gallery-8.jpg','gallery-9.jpg','gallery-10.jpg','gallery-11.jpg','gallery-12.jpg','gallery-13.jpg','gallery-14.jpg'];
   var lbIdx = 0;
   var lb = document.getElementById('lightbox');
   var lbImg = document.getElementById('lightboxImg');
