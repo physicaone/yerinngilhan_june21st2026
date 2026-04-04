@@ -456,67 +456,12 @@ section { padding: 60px 30px; text-align: center; }
   <div class="divider"></div>
   <div class="section-label">Gallery</div>
   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px;">
-    <img src="gallery-1.jpg" alt="갤러리 1" onclick="openLightbox(0)" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; cursor: pointer;">
-    <img src="gallery-2.jpg" alt="갤러리 2" onclick="openLightbox(1)" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; cursor: pointer;">
-    <img src="gallery-3.jpg" alt="갤러리 3" onclick="openLightbox(2)" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; cursor: pointer;">
-    <img src="gallery-4.jpg" alt="갤러리 4" onclick="openLightbox(3)" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; cursor: pointer;">
+    <img src="gallery-1.jpg" alt="갤러리 1" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px;">
+    <img src="gallery-2.jpg" alt="갤러리 2" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px;">
+    <img src="gallery-3.jpg" alt="갤러리 3" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px;">
+    <img src="gallery-4.jpg" alt="갤러리 4" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px;">
   </div>
 </section>
-
-<!-- Lightbox -->
-<div id="lightbox" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.92); z-index:2000; justify-content:center; align-items:center; flex-direction:column;">
-  <button onclick="closeLightbox()" style="position:absolute; top:16px; right:16px; background:none; border:none; color:white; font-size:28px; cursor:pointer; z-index:2001;">✕</button>
-  <div style="position:relative; width:100%; height:100%; display:flex; align-items:center; justify-content:center; overflow:hidden;">
-    <img id="lightboxImg" src="" style="max-width:92%; max-height:85vh; object-fit:contain; border-radius:6px; transition:opacity 0.3s;">
-  </div>
-  <div id="lightboxDots" style="position:absolute; bottom:24px; display:flex; gap:8px;"></div>
-</div>
-<script>
-(function(){
-  var imgs = ['gallery-1.jpg','gallery-2.jpg','gallery-3.jpg','gallery-4.jpg'];
-  var lbIdx = 0;
-  var lb = document.getElementById('lightbox');
-  var lbImg = document.getElementById('lightboxImg');
-  var lbDots = document.getElementById('lightboxDots');
-  var startX=0, diffX=0;
-
-  // Build dots
-  for(var i=0;i<imgs.length;i++){
-    var d = document.createElement('span');
-    d.style.cssText='width:8px;height:8px;border-radius:50%;background:#666;transition:background 0.3s;cursor:pointer;';
-    d.dataset.i=i;
-    d.onclick=function(){showImg(+this.dataset.i);};
-    lbDots.appendChild(d);
-  }
-
-  function showImg(i){
-    lbIdx=Math.max(0,Math.min(i,imgs.length-1));
-    lbImg.src=imgs[lbIdx];
-    for(var j=0;j<lbDots.children.length;j++) lbDots.children[j].style.background=j===lbIdx?'white':'#666';
-  }
-
-  window.openLightbox=function(i){
-    lb.style.display='flex';
-    document.body.style.overflow='hidden';
-    showImg(i);
-  };
-  window.closeLightbox=function(){
-    lb.style.display='none';
-    document.body.style.overflow='';
-  };
-
-  // Swipe in lightbox
-  lb.addEventListener('touchstart',function(e){startX=e.touches[0].clientX;},{passive:true});
-  lb.addEventListener('touchend',function(e){
-    diffX=e.changedTouches[0].clientX-startX;
-    if(Math.abs(diffX)>50){diffX<0?showImg(lbIdx+1):showImg(lbIdx-1);}
-    diffX=0;
-  });
-
-  // Click background to close
-  lb.addEventListener('click',function(e){if(e.target===lb)closeLightbox();});
-})();
-</script>
 
 <!-- 마음 전하실 곳 -->
 <section style="background: #F0EBE3; padding: 50px 30px;">
