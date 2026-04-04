@@ -458,17 +458,55 @@ section { padding: 60px 30px; text-align: center; }
 </section>
 
 <!-- Gallery -->
-<section style="background: var(--cream); padding: 50px 30px;">
-  <div class="divider"></div>
-  <div class="section-label">Gallery</div>
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 20px;">
-    <img src="gallery-1.jpg" alt="갤러리 1" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px;">
-    <img src="gallery-2.jpg" alt="갤러리 2" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px;">
-    <img src="gallery-3.jpg" alt="갤러리 3" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px;">
-    <img src="gallery-4.jpg" alt="갤러리 4" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px;">
-    <img src="gallery-5.jpg" alt="갤러리 5" style="width: 100%; grid-column: 1 / -1; aspect-ratio: 2 / 1; object-fit: cover; border-radius: 4px;">
+<section style="background: var(--cream); padding: 50px 0;">
+  <div class="divider" style="margin: 0 auto 30px;"></div>
+  <div class="section-label" style="padding: 0 30px;">Gallery</div>
+  <div style="position: relative; overflow: hidden; margin-top: 20px;">
+    <div id="galleryTrack" style="display: flex; transition: transform 0.4s ease; will-change: transform;">
+      <div style="min-width: 100%; padding: 0 30px; box-sizing: border-box;"><img src="gallery-1.jpg" alt="갤러리 1" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 8px;"></div>
+      <div style="min-width: 100%; padding: 0 30px; box-sizing: border-box;"><img src="gallery-2.jpg" alt="갤러리 2" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 8px;"></div>
+      <div style="min-width: 100%; padding: 0 30px; box-sizing: border-box;"><img src="gallery-3.jpg" alt="갤러리 3" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 8px;"></div>
+      <div style="min-width: 100%; padding: 0 30px; box-sizing: border-box;"><img src="gallery-4.jpg" alt="갤러리 4" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 8px;"></div>
+      <div style="min-width: 100%; padding: 0 30px; box-sizing: border-box;"><img src="gallery-5.jpg" alt="갤러리 5" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 8px;"></div>
+    </div>
+    <!-- Dots -->
+    <div id="galleryDots" style="display: flex; justify-content: center; gap: 8px; margin-top: 20px;"></div>
   </div>
 </section>
+<script>
+(function(){
+  var track = document.getElementById('galleryTrack');
+  var total = track.children.length;
+  var idx = 0;
+  var startX = 0, diffX = 0, dragging = false;
+
+  // Dots
+  var dotsEl = document.getElementById('galleryDots');
+  for(var i=0;i<total;i++){
+    var dot = document.createElement('span');
+    dot.style.cssText = 'width:8px;height:8px;border-radius:50%;background:'+(i===0?'var(--gold)':'#D4C8BC')+';transition:background 0.3s;cursor:pointer;';
+    dot.dataset.i = i;
+    dot.onclick = function(){ goTo(+this.dataset.i); };
+    dotsEl.appendChild(dot);
+  }
+
+  function goTo(i){
+    idx = Math.max(0, Math.min(i, total-1));
+    track.style.transform = 'translateX(-'+(idx*100)+'%)';
+    var dots = dotsEl.children;
+    for(var j=0;j<dots.length;j++) dots[j].style.background = j===idx?'var(--gold)':'#D4C8BC';
+  }
+
+  // Touch swipe
+  track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; dragging = true; track.style.transition='none'; }, {passive:true});
+  track.addEventListener('touchmove', function(e){ if(!dragging) return; diffX = e.touches[0].clientX - startX; track.style.transform = 'translateX(calc(-'+(idx*100)+'% + '+diffX+'px))'; }, {passive:true});
+  track.addEventListener('touchend', function(){
+    dragging = false; track.style.transition='transform 0.4s ease';
+    if(Math.abs(diffX)>50){ diffX<0 ? goTo(idx+1) : goTo(idx-1); } else { goTo(idx); }
+    diffX = 0;
+  });
+})();
+</script>
 
 <!-- 마음 전하실 곳 -->
 <section style="background: #F0EBE3; padding: 50px 30px;">
