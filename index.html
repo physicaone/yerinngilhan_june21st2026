@@ -624,7 +624,6 @@ section { padding: 60px 30px; text-align: center; }
 
     <!-- Success -->
     <div class="success-msg" id="rsvpSuccess">
-      <div class="check">💌</div>
       <h3>감사합니다!</h3>
       <p>참석여부가 전달되었습니다<br>소중한 걸음 기다리겠습니다</p>
       <br>
@@ -674,18 +673,28 @@ function changeCount(delta) {
 function submitRSVP() {
   const name = document.getElementById('f-name').value.trim();
   const phone = document.getElementById('f-phone').value.trim();
-  
-  if (!name || !phone) {
-    alert('성명과 연락처는 필수입니다.');
+  const sideEl = document.querySelector('#f-side .selected');
+  const attendEl = document.querySelector('#f-attend .selected');
+  const attendVal = attendEl ? attendEl.dataset.value : '참석';
+
+  if (!name) {
+    alert('성명은 필수입니다.');
     return;
   }
 
-  const sideEl = document.querySelector('#f-side .selected');
-
-  const attendEl = document.querySelector('#f-attend .selected');
+  if (attendVal === '참석') {
+    if (!phone) {
+      alert('참석하시는 경우 연락처는 필수입니다.');
+      return;
+    }
+    if (!sideEl) {
+      alert('신랑/신부 관계를 선택해 주세요.');
+      return;
+    }
+  }
 
   const data = {
-    attend: attendEl ? attendEl.dataset.value : '',
+    attend: attendVal,
     name: name,
     phone: phone,
     relation: document.getElementById('f-relation').value.trim(),
