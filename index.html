@@ -689,17 +689,17 @@ function submitRSVP() {
   const attendVal = attendEl ? attendEl.dataset.value : '참석';
 
   if (!name) {
-    alert('성명은 필수입니다.');
+    alert('이름을 기입해 주세요');
     return;
   }
 
   if (attendVal === '참석') {
     if (!phone) {
-      alert('참석하시는 경우 연락처는 필수입니다.');
+      alert('연락처를 기입해 주세요');
       return;
     }
     if (!sideEl) {
-      alert('신랑/신부 관계를 선택해 주세요.');
+      alert('누구의 지인인지 선택해 주세요');
       return;
     }
   }
